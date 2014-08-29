@@ -9,6 +9,43 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>angular-nestable</title>
+
+    <link rel="stylesheet" type="text/css" href="lib/jquery.nestable.css">
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/jquery.nestable.js"></script>
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <script type="text/javascript" src="src/angular-nestable.js"></script>
+    <script type="text/javascript">
+      angular.module('demo', ['ng-nestable']).controller('appController', function($scope){
+        $scope.mdl =  [
+          {
+            item: {text: 'a'},
+            children: []
+          },
+          {
+            item: {text: 'b'},
+            children: [
+              {
+                item: {text: 'c'},
+                children: []
+              },
+              {
+                item: {text: 'd'},
+                children: []
+              }
+            ]
+          },
+          {
+            item: {text: 'e'},
+            children: []
+          },
+          {
+            item: {text: 'f'},
+            children: []
+          }
+        ]
+      });
+    </script>
   </head>
 
   <body>
@@ -31,6 +68,16 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+
+        <div ng-app="demo">
+          <h2>Demo:</h2>
+          <div ng-controller="appController">
+            <div ng-nestable ng-model="mdl">
+              {{$item.text}}
+            </div>
+          </div>
+        </div>
+
         <h1>
 <a name="angular-nestable-001" class="anchor" href="#angular-nestable-001"><span class="octicon octicon-link"></span></a>angular-nestable 0.0.1</h1>
 
