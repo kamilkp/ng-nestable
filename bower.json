@@ -1,0 +1,27 @@
+{
+  "name": "angular-nestable",
+  "version": "0.0.1",
+  "description": "Angular module for jQuery nestable plugin",
+  "homepage": "https://github.com/kamilkp/ng-nestable",
+  "main": "src/angular-nestable.js",
+  "keywords": [
+    "angularjs",
+    "javascript",
+    "jquery",
+    "sortable",
+    "nestable"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "Gruntfile.js",
+    "README.md",
+    "bower.json",
+    "package.json",
+    "node_modules",
+    ".git"
+  ],
+  "authors": [
+    "Kamil Pękala <kamilkp@gmail.com>"
+  ]
+}

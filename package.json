@@ -1,0 +1,21 @@
+{
+  "name": "angular-nestable",
+  "version": "0.0.1",
+  "description": "Angular module for jQuery nestable plugin",
+  "homepage": "https://github.com/kamilkp/ng-nestable",
+  "author": {
+    "name": "Kamil Pekala",
+    "email": "kamilkp@gmail.com",
+    "url": "http://github.com/kamilkp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamilkp/ng-nestable.git"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+  },
+  "dependencies": {
+  }
+}
