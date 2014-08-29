@@ -2,7 +2,7 @@
   "name": "angular-nestable",
   "version": "0.0.1",
   "description": "Angular module for jQuery nestable plugin",
-  "homepage": "https://github.com/kamilkp/ng-nestable",
+  "homepage": "http://kamilkp.github.io/ng-nestable",
   "main": "src/angular-nestable.js",
   "keywords": [
     "angularjs",
