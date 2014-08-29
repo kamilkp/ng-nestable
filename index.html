@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="angular-nestable : Angular module for jQuery nestable plugin">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>angular-nestable</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/kamilkp/ng-nestable">View on GitHub</a>
+
+          <h1 id="project_title">angular-nestable</h1>
+          <h2 id="project_tagline">Angular module for jQuery nestable plugin</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/kamilkp/ng-nestable/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/kamilkp/ng-nestable/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="angular-nestable-001" class="anchor" href="#angular-nestable-001"><span class="octicon octicon-link"></span></a>angular-nestable 0.0.1</h1>
+
+<h3>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>DESCRIPTION:</h3>
+
+<p><code>angular-nestable</code> is a module for AngularJS that uses the jQuery nestable plugin to create multi-sortable lists with the ability to nest items within each other.</p>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>USAGE:</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">ng-nestable</span> <span class="na">ng-model=</span><span class="s">"items"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="c">&lt;!-- this element is the template for each menu item --&gt;</span>
+        <span class="c">&lt;!-- the $item is availabla on scope and is the reference to the menu item object --&gt;</span>
+        {{$item}}
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p>Example <code>items</code> object structure:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nx">item</span><span class="o">:</span> <span class="p">{},</span> <span class="c1">// this object will be referenced as the $item on scope</span>
+        <span class="nx">children</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">item</span><span class="o">:</span> <span class="p">{},</span>
+        <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nx">item</span><span class="o">:</span> <span class="p">{},</span>
+                <span class="nx">children</span><span class="o">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">item</span><span class="o">:</span> <span class="p">{},</span>
+        <span class="nx">children</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>Also the options object can be passed to the directive as the <code>ng-nestable</code> attribute. Those options will be passed to the jQuery <code>nestable</code> function when creating a nestable.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">angular-nestable maintained by <a href="https://github.com/kamilkp">kamilkp</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
