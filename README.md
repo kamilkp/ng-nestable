@@ -3,7 +3,7 @@ angular-nestable 0.0.1
 
 
 ###DESCRIPTION:
-`angular-nestable` is a module for [AngularJS]("https://angularjs.org") that uses the [jQuery nestable plugin]("https://github.com/dbushell/Nestable") to create multi-sortable lists with the ability to nest items within each other.
+`angular-nestable` is a module for [AngularJS](https://angularjs.org) that uses the [jQuery nestable plugin](https://github.com/dbushell/Nestable) to create multi-sortable lists with the ability to nest items within each other.
 
 ###USAGE:
 
