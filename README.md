@@ -1,4 +1,4 @@
-angular-nestable 0.0.1
+angular-nestable 0.0.1 [![Bower version](https://badge.fury.io/bo/ng-nestable.svg)](http://badge.fury.io/bo/ng-nestable)
 =================
 
 ###DEMO:
@@ -6,6 +6,18 @@ check out the demo [here](http://kamilkp.github.io/ng-nestable)
 
 ###DESCRIPTION:
 `angular-nestable` is a module for [AngularJS](https://angularjs.org) that uses the [jQuery nestable plugin](https://github.com/dbushell/Nestable) to create multi-sortable lists with the ability to nest items within each other.
+
+###INSTALLATION
+
+Either run `bower install ng-nestable` or download `angular-nestable.js` form the repository directly.
+
+Include the module in your app dependency:
+
+```javascript
+angular.module('yourAppModule', ['ng-nestable']);
+```
+
+Note that this module requires jQuery and jQuery nestable plugin.
 
 ###USAGE:
 
