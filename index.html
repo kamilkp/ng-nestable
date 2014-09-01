@@ -9,43 +9,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>angular-nestable</title>
-
-    <link rel="stylesheet" type="text/css" href="lib/jquery.nestable.css">
-    <script type="text/javascript" src="lib/jquery.js"></script>
-    <script type="text/javascript" src="lib/jquery.nestable.js"></script>
-    <script type="text/javascript" src="lib/angular.js"></script>
-    <script type="text/javascript" src="src/angular-nestable.js"></script>
-    <script type="text/javascript">
-      angular.module('demo', ['ng-nestable']).controller('appController', function($scope){
-        $scope.mdl =  [
-          {
-            item: {text: 'a'},
-            children: []
-          },
-          {
-            item: {text: 'b'},
-            children: [
-              {
-                item: {text: 'c'},
-                children: []
-              },
-              {
-                item: {text: 'd'},
-                children: []
-              }
-            ]
-          },
-          {
-            item: {text: 'e'},
-            children: []
-          },
-          {
-            item: {text: 'f'},
-            children: []
-          }
-        ]
-      });
-    </script>
   </head>
 
   <body>
@@ -68,23 +31,18 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-
-        <div ng-app="demo">
-          <h2>Demo:</h2>
-          <div ng-controller="appController">
-            <div ng-nestable ng-model="mdl">
-              {{$item.text}}
-            </div>
-          </div>
-        </div>
-
         <h1>
 <a name="angular-nestable-001" class="anchor" href="#angular-nestable-001"><span class="octicon octicon-link"></span></a>angular-nestable 0.0.1</h1>
 
 <h3>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>DEMO:</h3>
+
+<p>check out the demo <a href="http://kamilkp.github.io/ng-nestable">here</a></p>
+
+<h3>
 <a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>DESCRIPTION:</h3>
 
-<p><code>angular-nestable</code> is a module for AngularJS that uses the jQuery nestable plugin to create multi-sortable lists with the ability to nest items within each other.</p>
+<p><code>angular-nestable</code> is a module for <a href="https://angularjs.org">AngularJS</a> that uses the <a href="https://github.com/dbushell/Nestable">jQuery nestable plugin</a> to create multi-sortable lists with the ability to nest items within each other.</p>
 
 <h3>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>USAGE:</h3>
@@ -92,7 +50,7 @@
 <div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">ng-nestable</span> <span class="na">ng-model=</span><span class="s">"items"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div&gt;</span>
         <span class="c">&lt;!-- this element is the template for each menu item --&gt;</span>
-        <span class="c">&lt;!-- the $item is availabla on scope and is the reference to the menu item object --&gt;</span>
+        <span class="c">&lt;!-- the $item is available on scope and is the reference to the menu item object --&gt;</span>
         {{$item}}
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -121,7 +79,40 @@
 <span class="p">]</span>
 </pre></div>
 
+<p>Each nestable element in the DOM gets it's own non-isolated scope just like with <code>ng-repeat</code>.</p>
+
 <p>Also the options object can be passed to the directive as the <code>ng-nestable</code> attribute. Those options will be passed to the jQuery <code>nestable</code> function when creating a nestable.</p>
+
+<h1></h1>
+
+<p>The module also exposes a <code>$nestableProvider</code> that can be injected into a <code>config</code> block. It provides two methods:</p>
+
+<ul>
+<li>
+<code>$nestableProvider.modelName(str)</code> - can be used to set the model name variable inside each nestable element. The default value of model name is <code>$item</code>.</li>
+<li>
+<p><code>$nestableProvider.defaultOptions(obj)</code> - can be used to set some default options for the nestable jquery plugin. Those options include the following: (extract from the <a href="https://github.com/dbushell/Nestable">jQuery nestable</a> readme)</p>
+
+<pre><code>maxDepth        : number of levels an item can be nested (default 5)
+group           : group ID to allow dragging between lists (default 0)
+
+listNodeName    : The HTML element to create for lists (default 'ol')
+itemNodeName    : The HTML element to create for list items (default 'li')
+rootClass       : The class of the root element .nestable() was used on (default 'dd')
+listClass       : The class of all list elements (default 'dd-list')
+itemClass       : The class of all list item elements (default 'dd-item')
+dragClass       : The class applied to the list element that is being dragged (default 'dd-dragel')
+handleClass     : The class of the content element inside each list item (default 'dd-handle')
+collapsedClass  : The class applied to lists that have been collapsed (default 'dd-collapsed')
+placeClass      : The class of the placeholder element (default 'dd-placeholder')
+emptyClass      : The class used for empty list placeholder elements (default 'dd-empty')
+expandBtnHTML   : The HTML text used to generate a list item expand button (default '&lt;button data-action="expand"&gt;Expand&gt;&lt;/button&gt;')
+collapseBtnHTML : The HTML text used to generate a list item collapse button (default '&lt;button data-action="collapse"&gt;Collapse&lt;/button&gt;')
+</code></pre>
+</li>
+</ul><h1></h1>
+
+<p>Also note that the <code>ng-sortable</code> directive uses <a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController">ngModelController</a> to read and write to the provided model object and is fully compliant with <code>$formatters</code> and <code>$parsers</code>.</p>
       </section>
     </div>
 
