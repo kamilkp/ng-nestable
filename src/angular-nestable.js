@@ -58,6 +58,7 @@
 			var modelName = '$item';
 			var itemProperty = 'item';
 			var childrenProperty = 'children';
+			var collapseAllOnStart = false;
 			var defaultOptions = {};
 
 			this.$get = function(){
@@ -65,6 +66,7 @@
 					modelName: modelName,
 					itemProperty: itemProperty,
 					childrenProperty: childrenProperty,
+					collapseAllOnStart: collapseAllOnStart,
 					defaultOptions: defaultOptions
 				};
 			};
@@ -105,6 +107,13 @@
 			};
 
 			/**
+			 * Method to set option which responsible for collapsing all items on start
+			 * @param  {[boolean]} value
+			 */
+			this.collapseAllOnStart = function (value) {
+				collapseAllOnStart = value;
+			};
+			/**
 			 * Method to set default nestable options
 			 * @param  {[object]} value
 			 * You can change the follow options:
@@ -124,6 +133,7 @@
 				emptyClass      : The class used for empty list placeholder elements (default 'dd-empty')
 				expandBtnHTML   : The HTML text used to generate a list item expand button (default '<button data-action="expand">Expand></button>')
 				collapseBtnHTML : The HTML text used to generate a list item collapse button (default '<button data-action="collapse">Collapse</button>')
+
 
 			 */
 			this.defaultOptions = function(value){
@@ -159,6 +169,9 @@
 								$element.empty().append(root);
 								$compile(root)($scope);
 								root.nestable(options);
+								if ($nestable.collapseAllOnStart) {
+									root.nestable('collapseAll');
+								}
 								root.on('change', function(){
 									$ngModel.$setViewValue(root.nestable('serialize'));
 									$scope && $scope.$root && $scope.$root.$$phase || $scope.$apply();
