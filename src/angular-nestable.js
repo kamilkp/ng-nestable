@@ -56,11 +56,15 @@
 	angular.module('ng-nestable', [])
 		.provider('$nestable', function(){
 			var modelName = '$item';
+			var itemProperty = 'item';
+			var childrenProperty = 'children';
 			var defaultOptions = {};
 
 			this.$get = function(){
 				return {
 					modelName: modelName,
+					itemProperty: itemProperty,
+					childrenProperty: childrenProperty,
 					defaultOptions: defaultOptions
 				};
 			};
@@ -71,6 +75,33 @@
 			 */
 			this.modelName = function(value){
 				modelName = value;
+			};
+
+			/**
+			 * Method to set property which contains child elements
+			 * @param  {[string]} value
+			 */
+			this.childrenProperty = function(value){
+				childrenProperty = value;
+			};
+
+			/**
+			 * Method to set property which contains item information
+			 * @param  {[string]} value
+			 *
+			 * Use 'null' to expose item properties to object on the same level as children array
+			 * @example
+			 * {
+			 *   title: 'Title',
+			 *   name: 'Name',
+			 *   prop1: ''
+			 *   ...
+             *   children: []
+             * },
+			 *
+			 */
+			this.itemProperty = function(value){
+				itemProperty = value;
 			};
 
 			/**
@@ -150,10 +181,12 @@
 					var listElement = $('<div ng-nestable-item class="dd-handle"></div>');
 					listElement.append(tpl).appendTo(listItem);
 					list.append(listItem);
-					listItem.data('item', item.item);
-					if(isArray(item.children) && item.children.length > 0){
+					var itemData = $nestable.itemProperty ? item[$nestable.itemProperty] : item;
+					listItem.data('item', itemData);
+					var children = item[$nestable.childrenProperty];
+					if(isArray(children) && children.length > 0){
 						var subRoot = $('<ol class="dd-list"></ol>').appendTo(listItem);
-						item.children.forEach(function(item){
+						children.forEach(function(item){
 							f.apply(this, Array.prototype.slice.call(arguments).concat([subRoot]));
 						});
 					}
