@@ -156,7 +156,7 @@
 						$scope.$watchCollection(function(){
 							return $ngModel.$modelValue;
 						}, function(model){
-							if(model){
+							if(model && element.is(':empty')){
 
 								/**
 								 * we are running the formatters here instead of watching on $viewValue because our model is an Array
@@ -164,7 +164,6 @@
 								 * get executed
 								 */
 								model = runFormatters(model, $ngModel);
-								// TODO: optimize as rebuilding is not necessary here
 								var root = buildNestableHtml(model, itemTemplate);
 								$element.empty().append(root);
 								$compile(root)($scope);
