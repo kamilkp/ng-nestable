@@ -184,6 +184,12 @@
 
 			function buildNestableHtml(model, tpl){
 				var root = $('<div class="dd"></div>');
+				// create placeholder if the list is empty
+				if (!model.length) {
+					$('<div class="dd-empty"></div>').appendTo(root);
+					return root;
+				}
+				// create nested hierarchy
 				var rootList = $('<ol class="dd-list"></ol>').appendTo(root);
 				model.forEach(function f(item){
 					var list = Array.prototype.slice.call(arguments).slice(-1)[0];
