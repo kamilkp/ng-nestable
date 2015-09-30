@@ -98,8 +98,8 @@
 			 *   name: 'Name',
 			 *   prop1: ''
 			 *   ...
-			 *   children: []
-			 * },
+             *   children: []
+             * },
 			 *
 			 */
 			this.itemProperty = function(value){
