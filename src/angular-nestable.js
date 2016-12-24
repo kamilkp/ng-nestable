@@ -184,7 +184,8 @@
 
 			function buildNestableHtml(model, tpl){
 				var root = $('<div class="dd"></div>');
-				var rootList = $('<ol class="dd-list"></ol>').appendTo(root);
+				var rootList = '';
+				model.length == 0 ? rootList = $('<div class="dd-empty"></div>').appendTo(root):rootList = $('<ol class="dd-list"></ol>').appendTo(root);
 				model.forEach(function f(item){
 					var list = Array.prototype.slice.call(arguments).slice(-1)[0];
 					if(!(list instanceof $)) list = rootList;
