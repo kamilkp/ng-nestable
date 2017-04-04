@@ -153,7 +153,7 @@
 							$nestable.defaultOptions,
 							$scope.$eval($attrs.ngNestable)
 						);
-						$scope.$watchCollection(function(){
+						$scope.$watch(function(){
 							return $ngModel.$modelValue;
 						}, function(model){
 							if(model && element.is(':empty')){
@@ -176,7 +176,7 @@
 									$scope && $scope.$root && $scope.$root.$$phase || $scope.$apply();
 								});
 							}
-						});
+						}, true);
 					};
 				},
 				controller: angular.noop
