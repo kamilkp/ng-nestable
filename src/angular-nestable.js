@@ -173,7 +173,7 @@
 								}
                 root.on('change', function(){
                   var items = root.nestable('serialize');
-                  $ngModel.$modelValue.splice = 0;
+                  $ngModel.$modelValue.length = 0;
                   for(var i = 0, l = items.length; i<l; i++) {
                     $ngModel.$modelValue.push(items[i]);
                   }
