@@ -120,7 +120,7 @@
 
 				maxDepth        : number of levels an item can be nested (default 5)
 				group           : group ID to allow dragging between lists (default 0)
-				
+
 				listNodeName    : The HTML element to create for lists (default 'ol')
 				itemNodeName    : The HTML element to create for list items (default 'li')
 				rootClass       : The class of the root element .nestable() was used on (default 'dd')
@@ -153,7 +153,7 @@
 							$nestable.defaultOptions,
 							$scope.$eval($attrs.ngNestable)
 						);
-						$scope.$watchCollection(function(){
+						$scope.$watch(function(){
 							return $ngModel.$modelValue;
 						}, function(model){
 							if(model && element.is(':empty')){
@@ -171,12 +171,16 @@
 								if ($nestable.collapseAllOnStart) {
 									root.nestable('collapseAll');
 								}
-								root.on('change', function(){
-									$ngModel.$setViewValue(root.nestable('serialize'));
-									$scope && $scope.$root && $scope.$root.$$phase || $scope.$apply();
-								});
+                root.on('change', function(){
+                  var items = root.nestable('serialize');
+                  $ngModel.$modelValue.length = 0;
+                  for(var i = 0, l = items.length; i<l; i++) {
+                    $ngModel.$modelValue.push(items[i]);
+                  }
+                  $scope && $scope.$root && $scope.$root.$$phase || $scope.$apply();
+                });
 							}
-						});
+						}, true);
 					};
 				},
 				controller: angular.noop
